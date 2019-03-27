@@ -1,0 +1,162 @@
+// =============================================================================
+//  Project Name: h264_on_PYNQ
+//  File Name: helloworld.c
+// =============================================================================
+//  Revision History
+//      v0.0.1 - Gu Chen Hao - 20171129
+//      File created.
+// =============================================================================
+
+
+  #include <stdio.h>
+  #include <string.h>
+  #include <stdlib.h>
+  #include <fcntl.h>
+  #include <signal.h>
+  #include <time.h>
+
+  //#define DEBUG264 1
+  //#define DEBUGTOP 1
+  #define DEBUGTIME 1
+
+  #define H264ENC_ADDRESS     0x83C00000
+  #define H264ENC_ENABLE      0x00
+  #define H264ENC_PIC_SIZE    0x04
+  #define H264ENC_RUN_MOD     0x08
+  #define H264ENC_STATUS      0x0C
+  #define H264ENC_EXT_BASE    0x10
+  #define H264ENC_Y_BASE      0x14
+  #define H264ENC_BS_BASE     0x18
+  #define H264ENC_BS_COUNTER  0x1C
+  #define H264ENC_IRQ         0x20
+  #define H264ENC_DONE        0x24
+  #define H264ENC_INTRA_MODE  0x00000000
+  #define H264ENC_IRQ_STOP    0x00000000
+
+  #define CONVERT_ADDRESS     0x43C00000
+  #define CONVERT_ENABLE      0x00
+  #define CONVERT_RGB_BASE    0x04
+  #define CONVERT_Y_BASE      0x08
+  #define CONVERT_COL_LEN     0x0C
+  #define CONVERT_ROW_LEN     0x10
+  #define CONVERT_PIX_LEN     0x14
+  #define CONVERT_DONE        0x18
+
+  #define RGB_BASE        0x02000000
+  #define YUV_BASE_0        0x04000000
+  #define YUV_BASE_1        0x05000000
+  #define BS_BASE         0x06000000
+
+int main(){
+    init_platform();
+
+    #ifdef DEBUG264
+    unsigned int rbs_len;
+    printf("\n*** START TEST! ***\n");
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_PIC_SIZE)) = 0x00001d27          ;//640x480
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_RUN_MOD )) = H264ENC_INTRA_MODE  ;
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_Y_BASE  )) = YUV_BASE            ;
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_BASE )) = BS_BASE             ;
+    printf("enc initialized!\n");
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_ENABLE  )) = 1                   ;
+    printf("enc started!\n");
+    while( (*(volatile int *)(H264ENC_ADDRESS + H264ENC_DONE)) == 1 ) {
+       ;
+     }
+    while( (*(volatile int *)(H264_ADDRESS + H264ENC_DONE)) == 0 ) {
+       ;
+     }
+    rbs_len = (*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_COUNTER)) ;
+    printf("%08d\n",(*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_COUNTER)));
+    #endif
+
+    #ifdef DEBUGTOP
+    unsigned int rbs_len;
+    printf("\n*** START TEST! ***\n");
+    //convert
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_RGB_BASE)) = RGB_BASE      ;
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_Y_BASE  )) = YUV_BASE      ;
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_COL_LEN )) = 480          ;
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_ROW_LEN )) = 640          ;
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_PIX_LEN )) = 640*480     ;
+    printf("convert initialized!\n");
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_ENABLE  )) = 1             ;
+    (*(volatile int *)(CONVERT_ADDRESS + CONVERT_ENABLE  )) = 0             ;
+    printf("convert started!\n");
+    while( (*(volatile int *)(CONVERT_ADDRESS + CONVERT_DONE)) == 1 ) {
+       ;
+     }
+    while( (*(volatile int *)(CONVERT_ADDRESS + CONVERT_DONE)) == 0 ) {
+       ;
+     }
+     //enc
+    //(*(volatile int *)(H264ENC_ADDRESS + H264ENC_PIC_SIZE)) = 0x00004377          ;//1920x1088
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_PIC_SIZE)) = 0x00001d27          ;//640x480
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_RUN_MOD )) = H264ENC_INTRA_MODE  ;
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_Y_BASE  )) = YUV_BASE            ;
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_BASE )) = BS_BASE             ;
+    printf("enc initialized!\n");
+    (*(volatile int *)(H264ENC_ADDRESS + H264ENC_ENABLE  )) = 1                   ;
+    printf("enc started!\n");
+    while( (*(volatile int *)(H264ENC_ADDRESS + H264ENC_DONE)) == 1 ) {
+       ;
+     }
+    while( (*(volatile int *)(H264ENC_ADDRESS + H264ENC_DONE)) == 0 ) {
+       ;
+     }
+    rbs_len = (*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_COUNTER)) ;
+    printf("%08d\n",(*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_COUNTER)));
+    #endif
+
+    #ifdef DEBUGTIME
+    unsigned int rbs_len;
+    unsigned int i;
+    printf("\n*** START TEST! ***\n");
+    getchar();
+    //convert
+    for (i = 0;i < 400; i++) {
+        (*(volatile int *)(CONVERT_ADDRESS + CONVERT_RGB_BASE)) = RGB_BASE + 1920*4*(i%240)    ;
+        if (i%2 == 0)
+        	(*(volatile int *)(CONVERT_ADDRESS + CONVERT_Y_BASE  )) = YUV_BASE_0      ;
+        else
+        	(*(volatile int *)(CONVERT_ADDRESS + CONVERT_Y_BASE  )) = YUV_BASE_1      ;
+        (*(volatile int *)(CONVERT_ADDRESS + CONVERT_COL_LEN )) = 1088          ;
+        (*(volatile int *)(CONVERT_ADDRESS + CONVERT_ROW_LEN )) = 1920          ;
+        (*(volatile int *)(CONVERT_ADDRESS + CONVERT_PIX_LEN )) = 1920*1088     ;
+        printf("convert initialized!\n");
+        (*(volatile int *)(CONVERT_ADDRESS + CONVERT_ENABLE  )) = 1             ;
+        (*(volatile int *)(CONVERT_ADDRESS + CONVERT_ENABLE  )) = 0             ;
+        printf("convert started!\n");
+         //enc
+        (*(volatile int *)(H264ENC_ADDRESS + H264ENC_PIC_SIZE)) = 0x00004377          ;//1920x1088
+        //(*(volatile int *)(H264ENC_ADDRESS + H264ENC_PIC_SIZE)) = 0x00001d27          ;//640x480
+        (*(volatile int *)(H264ENC_ADDRESS + H264ENC_RUN_MOD )) = H264ENC_INTRA_MODE  ;
+        if (i%2 == 0)
+        	(*(volatile int *)(H264ENC_ADDRESS + H264ENC_Y_BASE  )) = YUV_BASE_1      ;
+        else
+        	(*(volatile int *)(H264ENC_ADDRESS + H264ENC_Y_BASE  )) = YUV_BASE_0      ;
+        (*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_BASE )) = BS_BASE             ;
+        printf("enc initialized!\n");
+        (*(volatile int *)(H264ENC_ADDRESS + H264ENC_ENABLE  )) = 1                   ;
+        printf("enc started!\n");
+        while( (*(volatile int *)(CONVERT_ADDRESS + CONVERT_DONE)) == 1 ) {
+           ;
+         }
+        while( (*(volatile int *)(H264ENC_ADDRESS + H264ENC_DONE)) == 1 ) {
+           ;
+         }
+        while( (*(volatile int *)(CONVERT_ADDRESS + CONVERT_DONE)) == 0 ) {
+           ;
+         }
+        while( (*(volatile int *)(H264ENC_ADDRESS + H264ENC_DONE)) == 0 ) {
+           ;
+         }
+        rbs_len = (*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_COUNTER)) ;
+        printf("%08d\n",(*(volatile int *)(H264ENC_ADDRESS + H264ENC_BS_COUNTER)));
+    }
+    printf("end!");
+    #endif
+
+    cleanup_platform();
+    return 0;
+}

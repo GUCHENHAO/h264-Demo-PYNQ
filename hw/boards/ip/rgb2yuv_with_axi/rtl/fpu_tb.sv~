@@ -1,0 +1,106 @@
+module fpu_tb;
+	import "DPI-C" function longint ieee_add(input longint a, input longint b);
+	import "DPI-C" function longint ieee_sub(input longint a, input longint b);
+	import "DPI-C" function longint ieee_mul(input longint a, input longint b);
+	import "DPI-C" function longint ieee_div(input longint a, input longint b);
+
+	logic clk;
+	logic rst;
+	logic enable;
+	logic [1:0] rmode;
+	logic [2:0] fpu_op;
+	logic [63:0] opa;
+	logic [63:0] opb;
+	logic [63:0] out;
+	logic ready;
+	logic underflow;
+	logic overflow;
+	logic inexact;
+	logic exception;
+	logic invalid;  
+
+	logic [63:0] c_out;
+
+	int count;
+
+	fpu UUT (
+		.clk(clk),
+		.rst(rst),
+		.enable(enable),
+		.rmode(rmode),
+		.fpu_op(fpu_op),
+		.opa(opa),
+		.opb(opb),
+		.out(out),
+		.ready(ready),
+		.underflow(underflow),
+		.overflow(overflow),
+		.inexact(inexact),
+		.exception(exception),
+		.invalid(invalid)
+	);
+
+	always
+	begin	
+		clk = 1'b0;
+		#5; 
+		clk = 1'b1;
+		#5; 
+	end
+
+	class random_ops;
+		rand bit[63:0] random_opa;
+		rand bit[63:0] random_opb;
+		rand bit[2:0] random_fpu_op;
+		constraint c1 {random_fpu_op inside {3'b000,3'b001,3'b010};}
+	endclass
+
+	random_ops ops = new;
+
+	initial begin
+		rst = 1'b1;
+		enable = 0;
+		rmode = 0;
+		fpu_op = 0;
+		opa = 0;
+		opb = 0;
+		count = 1;
+	end
+
+	initial begin		
+		#20;
+		rst = 1'b0;
+		repeat(100) begin
+			#20;
+			enable = 1'b1;
+			if (ops.randomize() == 1) begin
+				opa = ops.random_opa;
+				opb = ops.random_opb;
+				fpu_op = ops.random_fpu_op;
+			end			
+			rmode = 2'b00;
+			#20;			
+			enable = 1'b0;
+			case (fpu_op)
+				3'b000:c_out = ieee_add(opa,opb);
+				3'b001:c_out = ieee_sub(opa,opb);
+				3'b010:c_out = ieee_mul(opa,opb);
+				default: begin
+					$display("*** ERROR! ***");
+					$finish;
+				end
+			endcase
+			wait(ready);
+			$display("\nNo.%d : \nopa = %h , opb = %h , fpu_op = %d (0:add 1:sub 2:mul)",count++,opa,opb,fpu_op);
+			assert (out == c_out)
+				else begin
+					$display("ps Error! out is incorrect ! out = %h , correct_out = %h .",out,c_out);
+					$finish;
+				end
+			$display("ps Answer is correct ! out = %h", out);
+		end
+		#20;
+		$finish;
+	end
+
+endmodule

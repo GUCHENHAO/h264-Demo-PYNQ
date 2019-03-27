@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2016.1 (64-bit)                     -->
+<!--                                                              -->
+<!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.        -->
+
+<hwsession version="1" minor="1">
+  <device name="xc7z020_1" gui_info="dashboard1=hw_ila_1[xc7z020_1/hw_ila_1/Waveform=ILA_WAVE_1;xc7z020_1/hw_ila_1/Capture Setup=ILA_CAPTURE_1;xc7z020_1/hw_ila_1/Status=ILA_STATUS_1;xc7z020_1/hw_ila_1/Trigger Setup=ILA_TRIGGER_1;xc7z020_1/hw_ila_1/Settings=ILA_SETTINGS_1;],dashboard2=hw_ila_2[xc7z020_1/hw_ila_2/Capture Setup=ILA_CAPTURE_1;xc7z020_1/hw_ila_2/Settings=ILA_SETTINGS_1;xc7z020_1/hw_ila_2/Waveform=ILA_WAVE_1;xc7z020_1/hw_ila_2/Status=ILA_STATUS_1;xc7z020_1/hw_ila_2/Trigger Setup=ILA_TRIGGER_1;]"/>
+  <ObjectList object_type="hw_device" gui_info="">
+    <Object name="xc7z020_1" gui_info="">
+      <Properties Property="PROBES.FILE" value="$_project_name_.runs/impl_1/debug_nets.ltx"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/system_wrapper.bit"/>
+    </Object>
+  </ObjectList>
+  <ObjectList object_type="hw_ila" gui_info="">
+    <Object name="system_i/ila_0" gui_info="">
+      <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
+      <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
+    </Object>
+    <Object name="u_ila_0" gui_info="">
+      <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
+      <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
+    </Object>
+  </ObjectList>
+  <ObjectList object_type="hw_probe" gui_info="">
+    <Object name="system_i/h264enc_with_axi_0_winc" gui_info="Trigger Setup=0"/>
+  </ObjectList>
+  <probeset name="hw project" active="false">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="MAP" value="probe0[63:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0/rdata[63]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[62]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[61]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[60]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[59]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[58]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[57]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[56]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[55]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[54]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[53]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[52]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[51]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[50]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[49]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[48]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[47]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[46]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[45]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[44]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[43]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[42]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[41]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[40]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[39]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[38]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[37]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[36]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[35]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[34]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[33]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[32]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[31]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[30]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[29]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[28]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[27]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[26]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[25]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[24]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[23]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[22]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[21]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[20]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[19]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[18]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[17]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[16]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[15]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[14]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[13]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[12]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[11]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[10]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[9]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[8]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[7]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[6]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[5]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[4]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[3]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[2]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[1]"/>
+        <net name="system_i/h264enc_with_axi_0/rdata[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="MAP" value="probe2[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0/rvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq8&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq8&apos;hXX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="MAP" value="probe1[7:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq8&apos;hXX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0/wdata[7]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[6]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[5]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[4]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[3]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[2]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[1]"/>
+        <net name="system_i/h264enc_with_axi_0/wdata[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="MAP" value="probe3[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0/winc"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="MAP" value="probe3[63:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0_rdata[63]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[62]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[61]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[60]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[59]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[58]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[57]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[56]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[55]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[54]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[53]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[52]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[51]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[50]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[49]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[48]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[47]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[46]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[45]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[44]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[43]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[42]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[41]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[40]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[39]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[38]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[37]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[36]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[35]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[34]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[33]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[32]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[31]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[30]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[29]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[28]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[27]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[26]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[25]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[24]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[23]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[22]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[21]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[20]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[19]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[18]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[17]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[16]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[15]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[14]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[13]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[12]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[11]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[10]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[9]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[8]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[7]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[6]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[5]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[4]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[3]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[2]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[1]"/>
+        <net name="system_i/h264enc_with_axi_0_rdata[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="MAP" value="probe2[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0_rvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq8&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq8&apos;hXX"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="MAP" value="probe1[7:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq8&apos;hXX"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0_wdata[7]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[6]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[5]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[4]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[3]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[2]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[1]"/>
+        <net name="system_i/h264enc_with_axi_0_wdata[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;b1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="MAP" value="probe0[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;b1"/>
+      </probeOptions>
+      <nets>
+        <net name="system_i/h264enc_with_axi_0_winc"/>
+      </nets>
+    </probe>
+  </probeset>
+</hwsession>

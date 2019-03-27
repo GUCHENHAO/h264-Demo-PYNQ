@@ -1,0 +1,447 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2016.1 (win64) Build 1538259 Fri Apr  8 15:45:27 MDT 2016
+| Date              : Wed Nov 29 18:55:36 2017
+| Host              : DESKTOP-LCDQK1T running 64-bit major release  (build 9200)
+| Command           : report_clock_utilization -file system_wrapper_clock_utilization_routed.rpt
+| Design            : system_wrapper
+| Device            : 7z020-clg400
+| Speed File        : -1  PRODUCTION 1.11 2014-09-11
+| Temperature Grade : C
+-------------------------------------------------------------------------------------------------
+
+Clock Utilization Report
+
+Table of Contents
+-----------------
+1. Clock Primitive Utilization
+2. Global Clock Resources
+3. Global Clock Source Details
+4. Local Clock Details
+5. Clock Regions: Key Resource Utilization
+6. Clock Regions : Global Clock Summary
+7. Cell Type Counts per Global Clock: Region X0Y0
+8. Cell Type Counts per Global Clock: Region X1Y0
+9. Cell Type Counts per Global Clock: Region X0Y1
+10. Cell Type Counts per Global Clock: Region X1Y1
+11. Cell Type Counts per Global Clock: Region X0Y2
+12. Cell Type Counts per Global Clock: Region X1Y2
+13. Load Cell Placement Summary for Global Clock g0
+14. Load Cell Placement Summary for Global Clock g1
+15. Load Cell Placement Summary for Global Clock g2
+16. Load Cell Placement Summary for Global Clock g3
+17. Load Cell Placement Summary for Global Clock g4
+18. Load Cell Placement Summary for Global Clock g5
+19. Load Cell Placement Summary for Global Clock g6
+20. Load Cell Placement Summary for Global Clock g7
+21. Load Cell Placement Summary for Global Clock g8
+
+1. Clock Primitive Utilization
+------------------------------
+
++----------+------+-----------+-----+--------------+--------+
+| Type     | Used | Available | LOC | Clock Region | Pblock |
++----------+------+-----------+-----+--------------+--------+
+| BUFGCTRL |    5 |        32 |   0 |            0 |      0 |
+| BUFH     |    0 |        72 |   0 |            0 |      0 |
+| BUFIO    |    2 |        16 |   0 |            0 |      0 |
+| BUFMR    |    0 |         8 |   0 |            0 |      0 |
+| BUFR     |    2 |        16 |   0 |            0 |      0 |
+| MMCM     |    2 |         4 |   0 |            0 |      0 |
+| PLL      |    0 |         4 |   0 |            0 |      0 |
++----------+------+-----------+-----+--------------+--------+
+
+
+2. Global Clock Resources
+-------------------------
+
++-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------------------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+| GlbID | SrcId | Driver Type/Pin | Constraint | Site           | Clock Region | Root | Clock Delay Group | Clock Regions | Clock Loads | Non-Clock Loads | Clock Period | Clock                  | Driver Pin                                                                    | Net                                                                            |
++-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------------------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+| g0    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y17 | n/a          |      |                   |             4 |           2 |            9253 |       10.000 | clk_fpga_0             | system_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O        | system_i/processing_system7_0/inst/FCLK_CLK0                                   |
+| g1    | src1  | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          | n/a  | n/a               |             1 |           0 |              32 |          n/a | n/a                    | system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG_inst/O                          | system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG                                  |
+| g2    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y18 | n/a          | n/a  | n/a               |             6 |           0 |            8604 |        7.000 | clk_fpga_1             | system_i/processing_system7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG/O        | system_i/processing_system7_0/inst/FCLK_CLK1                                   |
+| g3    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y19 | n/a          | n/a  | n/a               |             2 |           0 |             162 |        5.000 | clk_fpga_2             | system_i/processing_system7_0/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG/O        | system_i/processing_system7_0/inst/FCLK_CLK2                                   |
+| g4    | src0  | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          | n/a  | n/a               |             6 |           0 |           13854 |       33.000 | clk_fpga_3             | system_i/processing_system7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG/O        | system_i/processing_system7_0/inst/FCLK_CLK3                                   |
+| g5    | src2  | BUFIO/O         | None       | BUFIO_X1Y5     | X1Y1         | n/a  | n/a               |             1 |           0 |              12 |        1.667 | I                      | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/SerialClkBuffer/O | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/SerialClk          |
+| g6    | src2  | BUFR/O          | None       | BUFR_X1Y5      | X1Y1         | n/a  | n/a               |             1 |           0 |            2555 |        8.334 | hdmi_in_PixelClk       | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/PixelClkBuffer/O  | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0] |
+| g7    | src3  | BUFIO/O         | None       | BUFIO_X1Y9     | X1Y2         | n/a  | n/a               |             1 |           0 |               8 |        2.000 | I_1                    | system_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFIO_inst/O                   | system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_5X_O                    |
+| g8    | src3  | BUFR/O          | None       | BUFR_X1Y9      | X1Y2         | n/a  | n/a               |             1 |           0 |            2137 |       10.000 | axi_dynclk_0_PXL_CLK_O | system_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst/O                    | system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O                       |
++-------+-------+-----------------+------------+----------------+--------------+------+-------------------+---------------+-------------+-----------------+--------------+------------------------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+* Note: Multiple constraint types applied to the driver. Please check for potential conflicts.
+
+
+3. Global Clock Source Details
+------------------------------
+
++-------+--------+--------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| SrcID | GlbIDs | Driver Type/Pin    | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                                                                           | Net                                                                      |
++-------+--------+--------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| src0  | g0     | PS7/FCLKCLK[0]     | PS7_X0Y0   | PS7_X0Y0        | X0Y2         |           1 |               0 |              10.000 | clk_fpga_0   | system_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]                                  | system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]                |
+| src0  | g2     | PS7/FCLKCLK[1]     | PS7_X0Y0   | PS7_X0Y0        | X0Y2         |           1 |               0 |               7.000 | clk_fpga_1   | system_i/processing_system7_0/inst/PS7_i/FCLKCLK[1]                                  | system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[1]                |
+| src0  | g3     | PS7/FCLKCLK[2]     | PS7_X0Y0   | PS7_X0Y0        | X0Y2         |           1 |               0 |               5.000 | clk_fpga_2   | system_i/processing_system7_0/inst/PS7_i/FCLKCLK[2]                                  | system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[2]                |
+| src0  | g4     | PS7/FCLKCLK[3]     | PS7_X0Y0   | PS7_X0Y0        | X0Y2         |           1 |               0 |              33.000 | clk_fpga_3   | system_i/processing_system7_0/inst/PS7_i/FCLKCLK[3]                                  | system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[3]                |
+| src1  | g1     | LUT2/O             | None       | SLICE_X35Y69    | X0Y1         |           1 |               0 |                     |              | system_i/h264/rgb2yuv_with_axi_0/inst/rgb2yuv_if_0/n_0_494_BUFG_inst_i_1/O           | system_i/h264/rgb2yuv_with_axi_0/inst/rgb2yuv_if_0/n_0_494_BUFG_inst_n_1 |
+| src2  | g5, g6 | MMCME2_ADV/CLKOUT0 | None       | MMCME2_ADV_X1Y1 | X1Y1         |           2 |               0 |               1.667 | I            | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/DVI_ClkGenerator/CLKOUT0 | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/I            |
+| src3  | g7, g8 | MMCME2_ADV/CLKOUT0 | None       | MMCME2_ADV_X1Y2 | X1Y2         |           2 |               0 |               2.000 | I_1          | system_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst/CLKOUT0 | system_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/I         |
++-------+--------+--------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+--------------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+
+
+4. Local Clock Details
+----------------------
+
++-------+-----------------+------------+----------+--------------+-------------+-----------------+--------------+-------+------------+-----+
+| LocId | Driver Type/Pin | Constraint | Site/BEL | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin | Net |
++-------+-----------------+------------+----------+--------------+-------------+-----------------+--------------+-------+------------+-----+
+
+
+5. Clock Regions: Key Resource Utilization
+------------------------------------------
+
++-------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+|                   | Global Clock |     BUFRs    |    BUFMRs    |    BUFIOs    |     MMCM     |      PLL     |      GT      |      PCI     |    ILOGIC    |    OLOGIC    |      FF      |     LUTM     |    RAMB18    |    RAMB36    |    DSP48E2   |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+| X0Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 5554 | 20000 | 2453 |  4000 |    0 |     0 |    2 |    30 |    0 |    60 |
+| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 6396 | 25600 | 1704 |  3400 |    0 |     0 |   28 |    30 |    0 |    40 |
+| X0Y1              |    4 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 4396 |  9600 | 1631 |  1600 |    0 |     0 |   12 |    10 |    0 |    20 |
+| X1Y1              |    6 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |   18 |    50 |    0 |    50 | 6956 | 20800 | 2129 |  3400 |    0 |     0 |   12 |    30 |    0 |    40 |
+| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 4491 |  9600 | 1344 |  1600 |    0 |     0 |    0 |    10 |    0 |    20 |
+| X1Y2              |    6 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    2 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |   16 |    50 | 8697 | 20800 | 3062 |  3400 |    0 |     0 |    2 |    30 |   18 |    40 |
++-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
+* Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
+** RAMB36 site can be used as two RAMB18/FIFO18 sites.
+
+
+6. Clock Regions : Global Clock Summary
+---------------------------------------
+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y2 |  3 |  6 |
+| Y1 |  4 |  6 |
+| Y0 |  2 |  2 |
++----+----+----+
+* Used Global Clocks includes only global clock resources based on load placement but does not consider global clock resources used to traverse a clock region. Therefore the actual total of Used Global Clocks may be higher.
+
+
+7. Cell Type Counts per Global Clock: Region X0Y0
+-------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                          |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+| g2    | n/a   | BUFG/O          | None       |           0 |            1252 | 1251 |    632 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK1 |
+| g4    | n/a   | BUFG/O          | None       |           0 |            4304 | 4303 |   1821 |    2 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK3 |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+
+
+8. Cell Type Counts per Global Clock: Region X1Y0
+-------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                          |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+| g2    | n/a   | BUFG/O          | None       |           0 |              37 |   36 |     11 |    2 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK1 |
+| g4    | n/a   | BUFG/O          | None       |           0 |            6374 | 6360 |   1693 |   26 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK3 |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+
+
+9. Cell Type Counts per Global Clock: Region X0Y1
+-------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-----------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                           |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-----------------------------------------------+
+| g0    | n/a   | BUFG/O          | None       |           0 |            1975 | 1971 |    659 |    8 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK0  |
+| g1    | n/a   | BUFG/O          | None       |           0 |              32 |   32 |     32 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG |
+| g2    | n/a   | BUFG/O          | None       |           0 |            1526 | 1525 |    609 |    2 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK1  |
+| g4    | n/a   | BUFG/O          | None       |           0 |             869 |  868 |    331 |    2 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK3  |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-----------------------------------------------+
+
+
+10. Cell Type Counts per Global Clock: Region X1Y1
+--------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                            |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------------+
+| g0    | n/a   | BUFG/O          | None       |           0 |             357 |  357 |    134 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK0                                   |
+| g2    | n/a   | BUFG/O          | None       |           0 |            2793 | 2787 |    879 |    9 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK1                                   |
+| g3    | n/a   | BUFG/O          | None       |           0 |             118 |  117 |     31 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK2                                   |
+| g4    | n/a   | BUFG/O          | None       |           0 |            1154 | 1152 |    384 |    2 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK3                                   |
+| g5    | n/a   | BUFIO/O         | None       |           0 |               6 |    0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/SerialClk          |
+| g6    | n/a   | BUFR/O          | None       |           0 |            2555 | 2543 |    701 |    3 |   0 |  0 |    0 |   0 |       0 | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0] |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------------+
+
+
+11. Cell Type Counts per Global Clock: Region X0Y2
+--------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                          |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+| g0    | n/a   | BUFG/O          | None       |           0 |            3616 | 3615 |   1039 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK0 |
+| g2    | n/a   | BUFG/O          | None       |           0 |             128 |  127 |      4 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK1 |
+| g4    | n/a   | BUFG/O          | None       |           0 |             750 |  749 |    301 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK3 |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+----------------------------------------------+
+
+
+12. Cell Type Counts per Global Clock: Region X1Y2
+--------------------------------------------------
+
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------------------+
+| GlbID | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                         |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------------------+
+| g0    | n/a   | BUFG/O          | None       |           1 |            3300 | 3300 |   1190 |    0 |   0 |  0 |    2 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK0                |
+| g2    | n/a   | BUFG/O          | None       |           0 |            2862 | 2842 |   1197 |    1 |  18 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK1                |
+| g3    | n/a   | BUFG/O          | None       |           0 |              44 |   44 |     14 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK2                |
+| g4    | n/a   | BUFG/O          | None       |           0 |             384 |  384 |    102 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/processing_system7_0/inst/FCLK_CLK3                |
+| g7    | n/a   | BUFIO/O         | None       |           0 |               8 |    0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_5X_O |
+| g8    | n/a   | BUFR/O          | None       |           0 |            2137 | 2127 |    559 |    1 |   0 |  0 |    0 |   0 |       0 | system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O    |
++-------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------------------+
+
+
+13. Load Cell Placement Summary for Global Clock g0
+---------------------------------------------------
+
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                          |
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| g0    | BUFG/O          | n/a               | clk_fpga_0 |      10.000 | {0.000 5.000} |          |        9248 |        0 |           1 |  0 | system_i/processing_system7_0/inst/FCLK_CLK0 |
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+
+
++----+-------+-------+
+|    | X0    | X1    |
++----+-------+-------+
+| Y2 |  3616 |  3301 |
+| Y1 |  1975 |   357 |
+| Y0 |     0 |     0 |
++----+-------+-------+
+
+
+14. Load Cell Placement Summary for Global Clock g1
+---------------------------------------------------
+
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-----------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                           |
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-----------------------------------------------+
+| g1    | BUFG/O          | n/a               |       |             |               |          |          32 |        0 |           0 |  0 | system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG |
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-----------------------------------------------+
+
+
++----+-----+----+
+|    | X0  | X1 |
++----+-----+----+
+| Y2 |   0 |  0 |
+| Y1 |  32 |  0 |
+| Y0 |   0 |  0 |
++----+-----+----+
+
+
+15. Load Cell Placement Summary for Global Clock g2
+---------------------------------------------------
+
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                          |
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| g2    | BUFG/O          | n/a               | clk_fpga_1 |       7.000 | {0.000 3.500} |          |        8598 |        0 |           0 |  0 | system_i/processing_system7_0/inst/FCLK_CLK1 |
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+
+
++----+-------+-------+
+|    | X0    | X1    |
++----+-------+-------+
+| Y2 |   128 |  2862 |
+| Y1 |  1526 |  2793 |
+| Y0 |  1252 |    37 |
++----+-------+-------+
+
+
+16. Load Cell Placement Summary for Global Clock g3
+---------------------------------------------------
+
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                          |
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| g3    | BUFG/O          | n/a               | clk_fpga_2 |       5.000 | {0.000 2.500} |          |         162 |        0 |           0 |  0 | system_i/processing_system7_0/inst/FCLK_CLK2 |
++-------+-----------------+-------------------+------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+
+
++----+----+------+
+|    | X0 | X1   |
++----+----+------+
+| Y2 |  0 |   44 |
+| Y1 |  0 |  118 |
+| Y0 |  0 |    0 |
++----+----+------+
+
+
+17. Load Cell Placement Summary for Global Clock g4
+---------------------------------------------------
+
++-------+-----------------+-------------------+------------+-------------+----------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                          |
++-------+-----------------+-------------------+------------+-------------+----------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+| g4    | BUFG/O          | n/a               | clk_fpga_3 |      33.000 | {0.000 16.500} |          |       13835 |        0 |           0 |  0 | system_i/processing_system7_0/inst/FCLK_CLK3 |
++-------+-----------------+-------------------+------------+-------------+----------------+----------+-------------+----------+-------------+----+----------------------------------------------+
+
+
++----+-------+-------+
+|    | X0    | X1    |
++----+-------+-------+
+| Y2 |   750 |   384 |
+| Y1 |   869 |  1154 |
+| Y0 |  4304 |  6374 |
++----+-------+-------+
+
+
+18. Load Cell Placement Summary for Global Clock g5
+---------------------------------------------------
+
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-----------------------------------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                                   |
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-----------------------------------------------------------------------+
+| g5    | BUFIO/O         | X1Y1              | I     |       1.667 | {0.000 0.833} |          |           0 |        6 |           0 |  0 | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/SerialClk |
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-----------------------------------------------------------------------+
+
+
++----+----+--------+
+|    | X0 | X1     |
++----+----+--------+
+| Y2 |  0 |      0 |
+| Y1 |  0 |  (D) 6 |
+| Y0 |  0 |      0 |
++----+----+--------+
+
+
+19. Load Cell Placement Summary for Global Clock g6
+---------------------------------------------------
+
++-------+-----------------+-------------------+------------------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock            | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                                            |
++-------+-----------------+-------------------+------------------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------------------+
+| g6    | BUFR/O          | X1Y1              | hdmi_in_PixelClk |       8.334 | {0.000 3.334} |          |        2549 |        6 |           0 |  0 | system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0] |
++-------+-----------------+-------------------+------------------+-------------+---------------+----------+-------------+----------+-------------+----+--------------------------------------------------------------------------------+
+
+
++----+----+-----------+
+|    | X0 | X1        |
++----+----+-----------+
+| Y2 |  0 |         0 |
+| Y1 |  0 |  (D) 2555 |
+| Y0 |  0 |         0 |
++----+----+-----------+
+
+
+20. Load Cell Placement Summary for Global Clock g7
+---------------------------------------------------
+
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-------------------------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                         |
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-------------------------------------------------------------+
+| g7    | BUFIO/O         | X1Y2              | I_1   |       2.000 | {0.000 1.000} |          |           0 |        8 |           0 |  0 | system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_5X_O |
++-------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+-------------+----+-------------------------------------------------------------+
+
+
++----+----+--------+
+|    | X0 | X1     |
++----+----+--------+
+| Y2 |  0 |  (D) 8 |
+| Y1 |  0 |      0 |
+| Y0 |  0 |      0 |
++----+----+--------+
+
+
+21. Load Cell Placement Summary for Global Clock g8
+---------------------------------------------------
+
++-------+-----------------+-------------------+------------------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------------------+
+| GlbID | Driver Type/Pin | Driver Region (D) | Clock                  | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clock Loads | GT | Net                                                      |
++-------+-----------------+-------------------+------------------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------------------+
+| g8    | BUFR/O          | X1Y2              | axi_dynclk_0_PXL_CLK_O |      10.000 | {0.000 4.000} |          |        2129 |        8 |           0 |  0 | system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O |
++-------+-----------------+-------------------+------------------------+-------------+---------------+----------+-------------+----------+-------------+----+----------------------------------------------------------+
+
+
++----+----+-----------+
+|    | X0 | X1        |
++----+----+-----------+
+| Y2 |  0 |  (D) 2137 |
+| Y1 |  0 |         0 |
+| Y0 |  0 |         0 |
++----+----+-----------+
+
+
+
+# Location of BUFG Primitives 
+set_property LOC BUFGCTRL_X0Y16 [get_cells system_i/processing_system7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG]
+set_property LOC BUFGCTRL_X0Y19 [get_cells system_i/processing_system7_0/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG]
+set_property LOC BUFGCTRL_X0Y18 [get_cells system_i/processing_system7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG]
+set_property LOC BUFGCTRL_X0Y17 [get_cells system_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG]
+set_property LOC BUFGCTRL_X0Y0 [get_cells system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG_inst]
+
+# Location of BUFIO Primitives 
+set_property LOC BUFIO_X1Y9 [get_cells system_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFIO_inst]
+set_property LOC BUFIO_X1Y5 [get_cells system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/SerialClkBuffer]
+
+# Location of BUFR Primitives 
+set_property LOC BUFR_X1Y9 [get_cells system_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst]
+set_property LOC BUFR_X1Y5 [get_cells system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/PixelClkBuffer]
+
+# Location of IO Primitives which is load of clock spine
+
+# Location of clock ports
+set_property LOC IOB_X1Y73 [get_ports hdmi_in_clk_n]
+set_property LOC IOB_X1Y74 [get_ports hdmi_in_clk_p]
+
+# Clock net "system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O" driven by instance "system_i/video/hdmi_out/frontend/axi_dynclk/U0/BUFR_inst" located at site "BUFR_X1Y9"
+#startgroup
+create_pblock {CLKAG_system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/video/hdmi_out/frontend/axi_dynclk/U0/PXL_CLK_O}] -add {CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0]" driven by instance "system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/PixelClkBuffer" located at site "BUFR_X1Y5"
+#startgroup
+create_pblock {CLKAG_system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0]}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0]}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0]"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/video/hdmi_in/frontend/dvi2rgb_0/U0/TMDS_ClockingX/oSyncStages_reg[0]}] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+#endgroup
+
+# Clock net "system_i/processing_system7_0/inst/FCLK_CLK3" driven by instance "system_i/processing_system7_0/inst/buffer_fclk_clk_3.FCLK_CLK_3_BUFG" located at site "BUFGCTRL_X0Y16"
+#startgroup
+create_pblock {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK3}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK3}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/processing_system7_0/inst/FCLK_CLK3"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK3}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "system_i/processing_system7_0/inst/FCLK_CLK2" driven by instance "system_i/processing_system7_0/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG" located at site "BUFGCTRL_X0Y19"
+#startgroup
+create_pblock {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK2}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK2}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/processing_system7_0/inst/FCLK_CLK2"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK2}] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "system_i/processing_system7_0/inst/FCLK_CLK1" driven by instance "system_i/processing_system7_0/inst/buffer_fclk_clk_1.FCLK_CLK_1_BUFG" located at site "BUFGCTRL_X0Y18"
+#startgroup
+create_pblock {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK1}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK1}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/processing_system7_0/inst/FCLK_CLK1"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK1}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "system_i/processing_system7_0/inst/FCLK_CLK0" driven by instance "system_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG" located at site "BUFGCTRL_X0Y17"
+#startgroup
+create_pblock {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK0}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK0}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=system_i/video/hdmi_out/frontend/axi_dynclk/U0/Inst_mmcme2_drp/mmcm_adv_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/processing_system7_0/inst/FCLK_CLK0"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/processing_system7_0/inst/FCLK_CLK0}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+#endgroup
+
+# Clock net "system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG" driven by instance "system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG_inst" located at site "BUFGCTRL_X0Y0"
+#startgroup
+create_pblock {CLKAG_system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG}
+add_cells_to_pblock [get_pblocks  {CLKAG_system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG"}]]]
+resize_pblock [get_pblocks {CLKAG_system_i/h264/rgb2yuv_with_axi_0/n_0_494_BUFG}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1}
+#endgroup
